@@ -63,7 +63,7 @@ resource "aws_s3_bucket_acl" "my-static-website" {
 }
 
 resource "aws_s3_object" "file" {
-  for_each     = fileset(path.module, "*.{html,css,js}")
+  for_each     = fileset(path.cwd, "*.{html,css,js}")
   bucket       = aws_s3_bucket.my-static-website.id
   key          = each.value
   source       = each.value
