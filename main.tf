@@ -10,6 +10,7 @@ locals {
 
 resource "aws_s3_bucket" "my-static-website" {
   bucket = var.bucket_name
+  force_destroy = true
   tags = {
     Name = var.site_name
   }
